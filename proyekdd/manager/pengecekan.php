@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION["employeeid"]) || $_SESSION["employeeid"] == "" || $_SESSION["jabatan"] != "manager"){
-    header("location:../login.php");
+if($_SESSION["employeeid"] == "" || $_SESSION["jabatan"] != "manager"){
+    header("location:../index.php");
 }
 ?>

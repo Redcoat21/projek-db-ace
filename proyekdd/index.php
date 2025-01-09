@@ -1,7 +1,29 @@
 <?php
 include("config/conn.php");
-if(isset($_SESSION["employeeid"]) || $_SESSION["employeeid"] != ""){
-  header("location:../login.php");
+if($_SESSION["employeeid"] != ""){
+  header("location:".$_SESSION["jabatan"]."/index.php");
+}
+if(isset($_POST["username"])){
+  $username = $_POST["username"];
+  $password = $_POST["password"];
+  $sql = "SELECT * FROM employee where username = :username and passwordd = :passwordd";
+  $stmt = oci_parse($conn, $sql);
+  oci_bind_by_name($stmt, ":username", $username);
+  oci_bind_by_name($stmt, ":passwordd", $password);
+  oci_execute($stmt);
+  $ada = false;
+  while($row = oci_fetch_assoc($stmt)){
+    $ada = true;
+    $_SESSION["employeeid"] = $row["EMPLOYEE_ID"];
+    $_SESSION["jabatan"] = $row["POSITION"];
+    $_SESSION["username"] = $username;
+    $_SESSION["password"] = $password;
+  }
+  if($ada){
+    header("location:".$_SESSION["jabatan"]."/index.php");
+  }else{
+    echo "Username / Password Salah";
+  }
 }
 ?>
 <!doctype html>
@@ -55,11 +77,11 @@ if(isset($_SESSION["employeeid"]) || $_SESSION["employeeid"] != ""){
             </div>
 
             <div class="mb-3">
-              <input type="text" class="form-control" id="Username" aria-describedby="emailHelp"
+              <input type="text" class="form-control" name="username" id="Username" aria-describedby="emailHelp"
                 placeholder="User Name">
             </div>
             <div class="mb-3">
-              <input type="password" class="form-control" id="password" placeholder="password">
+              <input type="password" class="form-control" name="password" id="password" placeholder="password">
             </div>
             <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100">Login</button></div>
           </form>

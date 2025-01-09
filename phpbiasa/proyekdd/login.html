@@ -14,7 +14,6 @@
     .btn-color {
       background-color: #0e1c36;
       color: #fff;
-
     }
 
     .profile-image-pic {
@@ -22,8 +21,6 @@
       width: 200px;
       object-fit: cover;
     }
-
-
 
     .cardbody-color {
       background-color: #ebf2fa;
@@ -42,7 +39,7 @@
         <h2 class="text-center text-dark mt-5">Login Form</h2>
         <div class="card my-5">
 
-          <form class="card-body cardbody-color p-lg-5">
+          <form class="card-body cardbody-color p-lg-5" onsubmit="handleLogin(event)">
 
             <div class="text-center">
               <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png"
@@ -50,7 +47,7 @@
             </div>
 
             <div class="mb-3">
-              <input type="text" class="form-control" id="Username" aria-describedby="emailHelp"
+              <input type="text" class="form-control" id="username" aria-describedby="emailHelp"
                 placeholder="User Name">
             </div>
             <div class="mb-3">
@@ -62,6 +59,23 @@
       </div>
     </div>
   </div>
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault(); // Prevent form submission
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === 'manager' && password === 'manager') {
+        window.location.href = 'manager/homemanager.php';
+      } else if (username === 'staff' && password === 'staff') {
+        window.location.href = 'staff/homestaff.php';
+      } else {
+        alert('Invalid username or password');
+      }
+    }
+  </script>
 </body>
 
 </html>

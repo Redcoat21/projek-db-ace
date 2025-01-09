@@ -1,5 +1,6 @@
 <?php
 include("../config/conn.php");
+include("pengecekan.php");
 $sql = "SELECT * FROM branch";
 $stmt = oci_parse($conn, $sql);
 oci_execute($stmt);

@@ -1,5 +1,6 @@
 <?php
 include("../config/conn.php");
+include("pengecekan.php");
 $sql = 'SELECT ht.HTRANS_ID as hid, ht.TRANSACTION_DATE as datee, e."Name" as emplonama, c."Name" as custnama, ht.TOTAL as totale FROM HTRANS ht, employee e, customer c where ht.employee_id = e.employee_id and c.customer_id = c.customer_id';
 $stmt = oci_parse($conn, $sql);
 oci_execute($stmt);

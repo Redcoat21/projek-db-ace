@@ -1,5 +1,6 @@
 <?php
 include("../config/conn.php");
+include("pengecekan.php");
 if(isset($_GET['action'])){
     $employee_id = $_SESSION["employeeid"];
     if($_GET["action"] == "add"){

@@ -43,7 +43,10 @@
 <body>
   <div class="sidebar">
     <h3 class="text-center py-3">Manager Panel</h3>
+    <a href="listproduk.php">List Produk</a>
     <a href="tambahproduk.php">Tambah Produk</a>
+    <a href="listemployee.php">List Employee</a>
+    <a href="tambahemployee.php">Tambah Employee</a>
     <a href="login.html">Logout</a>
   </div>
 

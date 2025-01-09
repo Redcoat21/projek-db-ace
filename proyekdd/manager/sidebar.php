@@ -1,7 +1,3 @@
-<!-- <?php
-// include("../config/conn.php");
-// include("pengecekan.php");
-?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,13 +41,19 @@
 </head>
 
 <body>
-<?php include('sidebar.php'); ?>
-
-  <div class="content">
-    <h1>Welcome, Manager</h1>
-    <p>Selamat datang di halaman manager. Silakan gunakan menu di sidebar untuk navigasi.</p>
+  <div class="sidebar">
+    <h3 class="text-center py-3">Manager Panel</h3>
+    <a href="listproduk.php">List Produk</a>
+    <a href="tambahproduk.php">Tambah Produk</a>
+    <a href="beliproduk.php">Beli Produk</a>
+    <a href="lihatcabang.php">Lihat Cabang</a>
+    <a href="lihatprodukcabang.php">Lihat Produk Cabang</a>
+    <a href="lihattransaksi.php">Lihat Transaksi</a>
+    <a href="lihattransaksicabang.php">Lihat Transaksi Cabang</a>
+    <a href="listemployee.php">List Employee</a>
+    <a href="tambahemployee.php">Tambah Employee</a>
+    <a href="logout.php">Logout</a>
   </div>
-
 </body>
 
 </html>

@@ -1,18 +1,18 @@
-<?php
-include("../config/conn.php");
-include("pengecekan.php");
-if(isset($_POST["name"])){
-    $name = $_POST["name"];
-    $contact = $_POST["contact"];
-    $address = $_POST["address"];
-    $sql = "BEGIN system.CHECKANDINSERTCUSTOMER(:name, :contact, :address); END;";
-    $stmt = oci_parse($conn, $sql);
-    oci_bind_by_name($stmt, ":name", $name);
-    oci_bind_by_name($stmt, ":contact", $contact);
-    oci_bind_by_name($stmt, ":address", $address);
-    oci_execute($stmt);
-}
-?>
+<!-- <?php
+// include("../config/conn.php");
+// include("pengecekan.php");
+// if(isset($_POST["name"])){
+//     $name = $_POST["name"];
+//     $contact = $_POST["contact"];
+//     $address = $_POST["address"];
+//     $sql = "BEGIN system.CHECKANDINSERTCUSTOMER(:name, :contact, :address); END;";
+//     $stmt = oci_parse($conn, $sql);
+//     oci_bind_by_name($stmt, ":name", $name);
+//     oci_bind_by_name($stmt, ":contact", $contact);
+//     oci_bind_by_name($stmt, ":address", $address);
+//     oci_execute($stmt);
+// }
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -132,14 +132,7 @@ if(isset($_POST["name"])){
 </head>
 
 <body>
-  <div class="sidebar">
-    <h3>Staff Panel</h3>
-    <a href="lihatproduk.php">Lihat Produk</a>
-    <a href="jualbarang.php">Jual Barang</a>
-    <a href="lihatcustomer.php">Lihat Customer</a>
-    <a href="tambahcustomer.php">Tambah Customer</a>
-    <a href="login.html">Logout</a>
-  </div>
+<?php include('sidebar.php'); ?>
 
   <div class="content">
     <div class="form-container">

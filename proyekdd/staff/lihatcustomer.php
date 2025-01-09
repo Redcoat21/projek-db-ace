@@ -1,32 +1,32 @@
-<?php
-include("../config/conn.php");
-include("pengecekan.php");
-$sql = "SELECT * FROM CUSTOMER";
-$stmt = oci_parse($conn, $sql);
-oci_execute($stmt);
+<!-- <?php
+// include("../config/conn.php");
+// include("pengecekan.php");
+// $sql = "SELECT * FROM CUSTOMER";
+// $stmt = oci_parse($conn, $sql);
+// oci_execute($stmt);
 
-// Menampilkan data dalam bentuk tabel
-echo "<table border='1' cellpadding='10' cellspacing='0'>";
-echo "<thead>";
-echo "<tr>";
-echo "<th>Customer ID</th>";
-echo "<th>Name</th>";
-echo "<th>Contact</th>";
-echo "<th>Address</th>";
-echo "</tr>";
-echo "</thead>";
-echo "<tbody>";
-while ($row = oci_fetch_assoc($stmt)) {
-    echo "<tr>";
-    echo "<td>" . $row["CUSTOMER_ID"] . "</td>";
-    echo "<td>" . $row["Name"] . "</td>";
-    echo "<td>" . $row["CONTACT"] . "</td>";
-    echo "<td>" . $row["Address"] . "</td>";
-    echo "</tr>";
-}
-echo "</tbody>";
-echo "</table>";
-?>
+// // Menampilkan data dalam bentuk tabel
+// echo "<table border='1' cellpadding='10' cellspacing='0'>";
+// echo "<thead>";
+// echo "<tr>";
+// echo "<th>Customer ID</th>";
+// echo "<th>Name</th>";
+// echo "<th>Contact</th>";
+// echo "<th>Address</th>";
+// echo "</tr>";
+// echo "</thead>";
+// echo "<tbody>";
+// while ($row = oci_fetch_assoc($stmt)) {
+//     echo "<tr>";
+//     echo "<td>" . $row["CUSTOMER_ID"] . "</td>";
+//     echo "<td>" . $row["Name"] . "</td>";
+//     echo "<td>" . $row["CONTACT"] . "</td>";
+//     echo "<td>" . $row["Address"] . "</td>";
+//     echo "</tr>";
+// }
+// echo "</tbody>";
+// echo "</table>";
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -123,14 +123,7 @@ echo "</table>";
 </head>
 
 <body>
-    <div class="sidebar">
-        <h3>Staff Panel</h3>
-        <a href="lihatproduk.php">Lihat Produk</a>
-        <a href="jualbarang.php">Jual Barang</a>
-        <a href="lihatcustomer.php">Lihat Customer</a>
-        <a href="tambahcustomer.php">Tambah Customer</a>
-        <a href="login.html">Logout</a>
-    </div>
+<?php include('sidebar.php'); ?>
 
     <div class="content">
         <div class="table-container">
@@ -145,52 +138,21 @@ echo "</table>";
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                        include("../config/conn.php");
-                        $sql = "SELECT * FROM CUSTOMER";
-                        $stmt = oci_parse($conn, $sql);
-                        oci_execute($stmt);
+                    <!-- <?php
+                        // include("../config/conn.php");
+                        // $sql = "SELECT * FROM CUSTOMER";
+                        // $stmt = oci_parse($conn, $sql);
+                        // oci_execute($stmt);
 
-                        while ($row = oci_fetch_assoc($stmt)) {
-                            echo "<tr>";
-                            echo "<td>" . $row["CUSTOMER_ID"] . "</td>";
-                            echo "<td>" . $row["Name"] . "</td>";
-                            echo "<td>" . $row["CONTACT"] . "</td>";
-                            echo "<td>" . $row["Address"] . "</td>";
-                            echo "</tr>";
-                        }
-                    ?>
-                    <!-- Data Dummy -->
-                    <!-- <tr>
-                        <td>CUST001</td>
-                        <td>John Doe</td>
-                        <td>+62 812 3456 7890</td>
-                        <td>Jl. Merdeka No.1, Jakarta</td>
-                    </tr>
-                    <tr>
-                        <td>CUST002</td>
-                        <td>Jane Smith</td>
-                        <td>+62 811 9876 5432</td>
-                        <td>Jl. Sudirman No.10, Bandung</td>
-                    </tr>
-                    <tr>
-                        <td>CUST003</td>
-                        <td>Michael Johnson</td>
-                        <td>+62 813 5678 1234</td>
-                        <td>Jl. Thamrin No.20, Surabaya</td>
-                    </tr>
-                    <tr>
-                        <td>CUST004</td>
-                        <td>Emily Davis</td>
-                        <td>+62 812 3456 6543</td>
-                        <td>Jl. Diponegoro No.15, Yogyakarta</td>
-                    </tr>
-                    <tr>
-                        <td>CUST005</td>
-                        <td>Robert Brown</td>
-                        <td>+62 814 1234 5678</td>
-                        <td>Jl. Gatot Subroto No.5, Bali</td>
-                    </tr> -->
+                        // while ($row = oci_fetch_assoc($stmt)) {
+                        //     echo "<tr>";
+                        //     echo "<td>" . $row["CUSTOMER_ID"] . "</td>";
+                        //     echo "<td>" . $row["Name"] . "</td>";
+                        //     echo "<td>" . $row["CONTACT"] . "</td>";
+                        //     echo "<td>" . $row["Address"] . "</td>";
+                        //     echo "</tr>";
+                        // }
+                    ?> -->
                 </tbody>
             </table>
         </div>

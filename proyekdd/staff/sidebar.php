@@ -1,7 +1,3 @@
-<!-- <?php
-// include("../config/conn.php");
-// include("pengecekan.php");
-?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,18 +82,13 @@
 </head>
 
 <body>
-<?php include('sidebar.php'); ?>
-
-  <div class="content">
-    <div class="card">
-      <h1 class="welcome-title">Welcome, Staff</h1>
-      <p class="text-muted">Selamat datang di halaman Staff. Silakan gunakan menu di sidebar untuk navigasi.</p>
-      <div class="action-buttons mt-4">
-        <a href="jualbarang.php" class="btn btn-custom">Jual Barang</a>
-        <a href="lihatcustomer.php" class="btn btn-custom">Lihat Customer</a>
-        <a href="tambahcustomer.php" class="btn btn-custom">Tambah Customer</a>
-      </div>
-    </div>
+  <div class="sidebar">
+    <h3>Staff Panel</h3>
+    <a href="lihatproduk.php">Lihat Produk</a>
+    <a href="jualbarang.php">Jual Barang</a>
+    <a href="lihatcustomer.php">Lihat Customer</a>
+    <a href="tambahcustomer.php">Tambah Customer</a>
+    <a href="login.html">Logout</a>
   </div>
 </body>
 

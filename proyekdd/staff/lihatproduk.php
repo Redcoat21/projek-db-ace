@@ -1,38 +1,38 @@
-<?php
-include("../config/conn.php");
-include("pengecekan.php");
-$sql = "SELECT * FROM PRODUCT";
-$stmt = oci_parse($conn, $sql);
-oci_execute($stmt);
+<!-- <?php
+// include("../config/conn.php");
+// include("pengecekan.php");
+// $sql = "SELECT * FROM PRODUCT";
+// $stmt = oci_parse($conn, $sql);
+// oci_execute($stmt);
 
-// Menampilkan data dalam bentuk tabel
-echo "<table border='1' cellpadding='10' cellspacing='0'>";
-echo "<thead>";
-echo "<tr>";
-echo "<th>Product ID</th>";
-echo "<th>Name</th>";
-echo "<th>Type</th>";
-echo "<th>Price</th>";
-echo "<th>Stok</th>";
-echo "<th>Branch_Owner</th>";
-echo "<th>DBLink</th>";
-echo "</tr>";
-echo "</thead>";
-echo "<tbody>";
-while ($row = oci_fetch_assoc($stmt)) {
-    echo "<tr>";
-    echo "<td>" . $row["PRODUCT_ID"] . "</td>";
-    echo "<td>" . $row["Name"] . "</td>";
-    echo "<td>" . $row["Type"] . "</td>";
-    echo "<td>" . $row["PRICE"] . "</td>";
-    echo "<td>" . $row["STOK"] . "</td>";
-    echo "<td>" . $row["BRANCH_OWNER"] . "</td>";
-    echo "<td>" . $row["DBLINK"] . "</td>";
-    echo "</tr>";
-}
-echo "</tbody>";
-echo "</table>";
-?>
+// // Menampilkan data dalam bentuk tabel
+// echo "<table border='1' cellpadding='10' cellspacing='0'>";
+// echo "<thead>";
+// echo "<tr>";
+// echo "<th>Product ID</th>";
+// echo "<th>Name</th>";
+// echo "<th>Type</th>";
+// echo "<th>Price</th>";
+// echo "<th>Stok</th>";
+// echo "<th>Branch_Owner</th>";
+// echo "<th>DBLink</th>";
+// echo "</tr>";
+// echo "</thead>";
+// echo "<tbody>";
+// while ($row = oci_fetch_assoc($stmt)) {
+//     echo "<tr>";
+//     echo "<td>" . $row["PRODUCT_ID"] . "</td>";
+//     echo "<td>" . $row["Name"] . "</td>";
+//     echo "<td>" . $row["Type"] . "</td>";
+//     echo "<td>" . $row["PRICE"] . "</td>";
+//     echo "<td>" . $row["STOK"] . "</td>";
+//     echo "<td>" . $row["BRANCH_OWNER"] . "</td>";
+//     echo "<td>" . $row["DBLINK"] . "</td>";
+//     echo "</tr>";
+// }
+// echo "</tbody>";
+// echo "</table>";
+?> -->
 
 <head>
   <meta charset="UTF-8">
@@ -126,18 +126,11 @@ echo "</table>";
 </head>
 
 <body>
-    <div class="sidebar">
-        <h3>Staff Panel</h3>
-        <a href="lihatproduk.php">Lihat Produk</a>
-        <a href="jualbarang.php">Jual Barang</a>
-        <a href="lihatcustomer.php">Lihat Customer</a>
-        <a href="tambahcustomer.php">Tambah Customer</a>
-        <a href="login.html">Logout</a>
-    </div>
+<?php include('sidebar.php'); ?>
 
     <div class="content">
         <div class="table-container">
-            <h1>Customer Data</h1>
+            <h1>Lihat Produk</h1>
             <table>
                 <thead>
                     <tr>
@@ -151,24 +144,24 @@ echo "</table>";
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                        include("../config/conn.php");
-                        $sql = "SELECT * FROM PRODUCT";
-                        $stmt = oci_parse($conn, $sql);
-                        oci_execute($stmt);
+                    <!-- <?php
+                        // include("../config/conn.php");
+                        // $sql = "SELECT * FROM PRODUCT";
+                        // $stmt = oci_parse($conn, $sql);
+                        // oci_execute($stmt);
 
-                        while ($row = oci_fetch_assoc($stmt)) {
-                            echo "<tr>";
-                            echo "<td>" . $row["PRODUCT_ID"] . "</td>";
-                            echo "<td>" . $row["Name"] . "</td>";
-                            echo "<td>" . $row["Type"] . "</td>";
-                            echo "<td>" . $row["PRICE"] . "</td>";
-                            echo "<td>" . $row["STOK"] . "</td>";
-                            echo "<td>" . $row["BRANCH_OWNER"] . "</td>";
-                            echo "<td>" . $row["DBLINK"] . "</td>";
-                            echo "</tr>";
-                        }
-                    ?>
+                        // while ($row = oci_fetch_assoc($stmt)) {
+                        //     echo "<tr>";
+                        //     echo "<td>" . $row["PRODUCT_ID"] . "</td>";
+                        //     echo "<td>" . $row["Name"] . "</td>";
+                        //     echo "<td>" . $row["Type"] . "</td>";
+                        //     echo "<td>" . $row["PRICE"] . "</td>";
+                        //     echo "<td>" . $row["STOK"] . "</td>";
+                        //     echo "<td>" . $row["BRANCH_OWNER"] . "</td>";
+                        //     echo "<td>" . $row["DBLINK"] . "</td>";
+                        //     echo "</tr>";
+                        // }
+                    ?> -->
                 </tbody>
             </table>
         </div>

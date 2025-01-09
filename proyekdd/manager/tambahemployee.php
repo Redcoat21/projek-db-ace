@@ -1,28 +1,28 @@
-<?php
-include("../config/conn.php");
-include("pengecekan.php");
-if(isset($_POST["username"])){
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-    $name = $_POST["name"];
-    $address = $_POST["address"];
-    $contact = $_POST["contact"];
-    $age = $_POST["age"];
-    $salary = $_POST["salary"];
-    $position = $_POST["position"];
-    $sql = "BEGIN system.insertEmployee(:username,:password,:name,:address,:contact,:age,:salary,:position); END;";
-    $stmt = oci_parse($conn, $sql);
-    oci_bind_by_name($stmt, ":username", $username);
-    oci_bind_by_name($stmt, ":password", $password);
-    oci_bind_by_name($stmt, ":name", $name);
-    oci_bind_by_name($stmt, ":address", $address);
-    oci_bind_by_name($stmt, ":contact", $contact);
-    oci_bind_by_name($stmt, ":age", $age);
-    oci_bind_by_name($stmt, ":salary", $salary);
-    oci_bind_by_name($stmt, ":position", $position);
-    oci_execute($stmt);
-}
-?>
+<!-- <?php
+// include("../config/conn.php");
+// include("pengecekan.php");
+// if(isset($_POST["username"])){
+//     $username = $_POST["username"];
+//     $password = $_POST["password"];
+//     $name = $_POST["name"];
+//     $address = $_POST["address"];
+//     $contact = $_POST["contact"];
+//     $age = $_POST["age"];
+//     $salary = $_POST["salary"];
+//     $position = $_POST["position"];
+//     $sql = "BEGIN system.insertEmployee(:username,:password,:name,:address,:contact,:age,:salary,:position); END;";
+//     $stmt = oci_parse($conn, $sql);
+//     oci_bind_by_name($stmt, ":username", $username);
+//     oci_bind_by_name($stmt, ":password", $password);
+//     oci_bind_by_name($stmt, ":name", $name);
+//     oci_bind_by_name($stmt, ":address", $address);
+//     oci_bind_by_name($stmt, ":contact", $contact);
+//     oci_bind_by_name($stmt, ":age", $age);
+//     oci_bind_by_name($stmt, ":salary", $salary);
+//     oci_bind_by_name($stmt, ":position", $position);
+//     oci_execute($stmt);
+// }
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -126,14 +126,7 @@ if(isset($_POST["username"])){
 </head>
 
 <body>
-  <div class="sidebar">
-    <h3 class="text-center py-3">Manager Panel</h3>
-    <a href="listproduk.php">List Produk</a>
-    <a href="tambahproduk.php">Tambah Produk</a>
-    <a href="listemployee.php">List Employee</a>
-    <a href="tambahemployee.php">Tambah Employee</a>
-    <a href="login.html">Logout</a>
-  </div>
+<?php include('sidebar.php'); ?>
 
   <div class="content">
     <div class="form-container">

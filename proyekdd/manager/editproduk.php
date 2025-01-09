@@ -1,28 +1,28 @@
-<?php
-include("../config/conn.php");
-include("pengecekan.php");
-if(isset($_POST["nama_produk"])){
-    $id_produk = $_POST["id_produk"];
-    $nama_produk = $_POST["nama_produk"];
-    $tipe_produk = $_POST["tipe_produk"];
-    $harga_produk = $_POST["harga_produk"];
-    $stok_produk = $_POST["stok_produk"];
-    $sql = 'update product set "Name" = :nama_produk, PRICE = :harga_produk, STOK = :stok_produk where product_id = :id_produk';
-    $stmt = oci_parse($conn, $sql);
-    oci_bind_by_name($stmt, ":nama_produk", $nama_produk);
-    oci_bind_by_name($stmt, ":harga_produk", $harga_produk);
-    oci_bind_by_name($stmt, ":stok_produk", $stok_produk);
-    oci_bind_by_name($stmt, ":id_produk", $id_produk);
-    oci_execute($stmt);
-}
-if(isset($_GET["id"])){
-    $id_produk = $_GET["id"];
-    $sql = "SELECT * FROM PRODUCT WHERE product_id = '".$id_produk."'";
-    $stmt = oci_parse($conn, $sql);
-    oci_execute($stmt);
-    $row = oci_fetch_assoc($stmt);
-}
-?>
+<!-- <?php
+// include("../config/conn.php");
+// include("pengecekan.php");
+// if(isset($_POST["nama_produk"])){
+//     $id_produk = $_POST["id_produk"];
+//     $nama_produk = $_POST["nama_produk"];
+//     $tipe_produk = $_POST["tipe_produk"];
+//     $harga_produk = $_POST["harga_produk"];
+//     $stok_produk = $_POST["stok_produk"];
+//     $sql = 'update product set "Name" = :nama_produk, PRICE = :harga_produk, STOK = :stok_produk where product_id = :id_produk';
+//     $stmt = oci_parse($conn, $sql);
+//     oci_bind_by_name($stmt, ":nama_produk", $nama_produk);
+//     oci_bind_by_name($stmt, ":harga_produk", $harga_produk);
+//     oci_bind_by_name($stmt, ":stok_produk", $stok_produk);
+//     oci_bind_by_name($stmt, ":id_produk", $id_produk);
+//     oci_execute($stmt);
+// }
+// if(isset($_GET["id"])){
+//     $id_produk = $_GET["id"];
+//     $sql = "SELECT * FROM PRODUCT WHERE product_id = '".$id_produk."'";
+//     $stmt = oci_parse($conn, $sql);
+//     oci_execute($stmt);
+//     $row = oci_fetch_assoc($stmt);
+// }
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -137,14 +137,7 @@ if(isset($_GET["id"])){
 
 <body>
 
-  <div class="sidebar">
-    <h3 class="text-center py-3">Manager Panel</h3>
-    <a href="listproduk.php">List Produk</a>
-    <a href="tambahproduk.php">Tambah Produk</a>
-    <a href="listemployee.php">List Employee</a>
-    <a href="tambahemployee.php">Tambah Employee</a>
-    <a href="login.html">Logout</a>
-  </div>
+<?php include('sidebar.php'); ?>
 
   <div class="content">
     <div class="form-container">

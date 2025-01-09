@@ -95,13 +95,7 @@
 </head>
 
 <body>
-    <div class="sidebar">
-        <h3>Staff Panel</h3>
-        <a href="jualbarang.php">Jual Barang</a>
-        <a href="lihatcustomer.php">Lihat Customer</a>
-        <a href="tambahcustomer.php">Tambah Customer</a>
-        <a href="login.html">Logout</a>
-    </div>
+<?php include('sidebar.php'); ?>
 
     <div class="content">
         <!-- <?php

@@ -84,6 +84,7 @@
 <body>
   <div class="sidebar">
     <h3>Staff Panel</h3>
+    <a href="lihatproduk.php">Lihat Produk</a>
     <a href="jualbarang.php">Jual Barang</a>
     <a href="lihatcustomer.php">Lihat Customer</a>
     <a href="tambahcustomer.php">Tambah Customer</a>

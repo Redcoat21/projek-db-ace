@@ -6,9 +6,9 @@ oci_execute($stmt);
 if(isset($_POST["action"])){
     $username = $_POST["username"];
     if($_POST["action"] == "delete"){
-        $sql = "BEGIN deleteEmployee(:username); END;";
+        $sql = "BEGIN system.deleteEmployee(:username); END;";
     }else{
-        $sql = "BEGIN restoreEmployee(:username); END;";
+        $sql = "BEGIN system.restoreEmployee(:username); END;";
     }
     $stmt = oci_parse($conn, $sql);
     oci_bind_by_name($stmt, ":username", $username);

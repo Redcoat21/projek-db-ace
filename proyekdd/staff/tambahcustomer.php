@@ -4,7 +4,7 @@ if(isset($_POST["name"])){
     $name = $_POST["name"];
     $contact = $_POST["contact"];
     $address = $_POST["address"];
-    $sql = "BEGIN CHECKANDINSERTCUSTOMER(:name, :contact, :address); END;";
+    $sql = "BEGIN system.CHECKANDINSERTCUSTOMER(:name, :contact, :address); END;";
     $stmt = oci_parse($conn, $sql);
     oci_bind_by_name($stmt, ":name", $name);
     oci_bind_by_name($stmt, ":contact", $contact);

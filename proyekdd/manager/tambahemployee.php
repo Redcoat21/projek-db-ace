@@ -9,7 +9,7 @@ if(isset($_POST["username"])){
     $age = $_POST["age"];
     $salary = $_POST["salary"];
     $position = $_POST["position"];
-    $sql = "BEGIN insertEmployee(:username,:password,:name,:address,:contact,:age,:salary,:position); END;";
+    $sql = "BEGIN system.insertEmployee(:username,:password,:name,:address,:contact,:age,:salary,:position); END;";
     $stmt = oci_parse($conn, $sql);
     oci_bind_by_name($stmt, ":username", $username);
     oci_bind_by_name($stmt, ":password", $password);

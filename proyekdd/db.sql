@@ -447,7 +447,7 @@ grant select, insert, update on product to role_manager;
 grant select, insert, update on htrans to role_manager;
 grant select, insert, update on dtrans to role_manager;
 grant select, insert, update on productFromAllBranch to role_staff;
-grant select, insert, update on productFromAllBranch to role_staff;
+grant select, insert, update on branch to role_staff;
 
 grant execute on insertEmployee to role_manager;
 grant execute on deleteEmployee to role_manager;
@@ -535,7 +535,7 @@ BEGIN
   CONTACT := '081';
   AGE := 20;
   SALARY := 5000000;
-  POSITION := 'staff';
+  POSITION := 'manager';
 
   INSERTEMPLOYEE(
     USERNAME => USERNAME,

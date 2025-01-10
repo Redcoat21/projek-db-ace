@@ -1,7 +1,7 @@
-<!-- <?php
-// include("../config/conn.php");
-// include("pengecekan.php");
-?> -->
+<?php
+include("../config/conn.php");
+include("pengecekan.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 

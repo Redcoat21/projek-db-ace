@@ -1,20 +1,20 @@
-<!-- <?php
-// include("../config/conn.php");
-// include("pengecekan.php");
-// if(isset($_POST["name"])){
-//     $name = $_POST["name"];
-//     $type = $_POST["type"];
-//     $price = $_POST["price"];
-//     $stock = $_POST["stock"];
-//     $sql = "BEGIN system.INSERTTOPRODUCTUSINGSCHEDULER(:name, :type, :price, :stock); END;";
-//     $stmt = oci_parse($conn, $sql);
-//     oci_bind_by_name($stmt, ":name", $name);
-//     oci_bind_by_name($stmt, ":type", $type);
-//     oci_bind_by_name($stmt, ":price", $price);
-//     oci_bind_by_name($stmt, ":stock", $stock);
-//     oci_execute($stmt);
-// }
-?> -->
+<?php
+include("../config/conn.php");
+include("pengecekan.php");
+if(isset($_POST["name"])){
+    $name = $_POST["name"];
+    $type = $_POST["type"];
+    $price = $_POST["price"];
+    $stock = $_POST["stock"];
+    $sql = "BEGIN system.INSERTTOPRODUCTUSINGSCHEDULER(:name, :type, :price, :stock); END;";
+    $stmt = oci_parse($conn, $sql);
+    oci_bind_by_name($stmt, ":name", $name);
+    oci_bind_by_name($stmt, ":type", $type);
+    oci_bind_by_name($stmt, ":price", $price);
+    oci_bind_by_name($stmt, ":stock", $stock);
+    oci_execute($stmt);
+}
+?>
 
 
 <!DOCTYPE html>

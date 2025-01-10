@@ -340,7 +340,7 @@ BEGIN
     refreshmv;
 END BoughtProductFromOtherBranch;
 /
-show err;
+show err; 
 create or replace procedure INSERTTOPRODUCTUSINGSCHEDULER
 (
     names in varchar2,

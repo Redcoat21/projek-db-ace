@@ -145,19 +145,21 @@ include("pengecekan.php");
 
         <label for="customer">Pilih Customer:</label>
         <select name="customer" id="customer">
-          <?php while ($row = oci_fetch_assoc($customer)) { ?>
-            <option value="<?= $row["CUSTOMER_ID"] ?>"><?= $row["NAME"] ?></option>
+          <?php while ($row = oci_fetch_assoc($customer)) {?>
+            <option value="<?= $row["CUSTOMER_ID"] ?>"><?= $row["Name"] ?></option>
           <?php } ?>
         </select>
-
-        <label for="listprod">Pilih Produk:</label>
-        <select id="listprod">
-          <?php while ($row = oci_fetch_assoc($produk)) { ?>
-            <option value="<?= $row["PRODUCT_ID"] ?>"><?= $row["NAME"] ?></option>
-          <?php } ?>
-        </select>
-
-        <input type="number" placeholder="Quantity" id="qtyprod">
+          <br>
+          <label for="listprod">Pilih Produk:</label>
+          <select id="listprod">
+            <?php while ($row = oci_fetch_assoc($produk)) { ?>
+              <option value="<?= $row["PRODUCT_ID"] ?>"><?= $row["Name"] ?></option>
+              <?php } ?>
+            </select>
+            <br>
+            
+            <input type="number" placeholder="Quantity" id="qtyprod">
+            <br>
         <input type="button" onclick="tambahproduk()" value="Tambah Produk">
 
         <div class="list-produk mt-3" id="listproduke"></div>

@@ -436,7 +436,6 @@ grant select, insert, update on htrans to role_staff;
 grant select, insert, update on dtrans to role_staff;
 grant select, insert, update on ProductTransaction to role_staff;
 grant select, insert, update on productFromAllBranch to role_staff;
-grant select, insert, update on productFromAllBranch to role_staff;
 
 grant execute on CHECKANDINSERTCUSTOMER to role_staff;
 grant execute on createTransaction to role_staff;
@@ -446,8 +445,8 @@ grant select, insert, update on employee to role_manager;
 grant select, insert, update on product to role_manager;
 grant select, insert, update on htrans to role_manager;
 grant select, insert, update on dtrans to role_manager;
-grant select, insert, update on productFromAllBranch to role_staff;
-grant select, insert, update on branch to role_staff;
+grant select, insert, update on productFromAllBranch to role_manager;
+grant select, insert, update on branch to role_manager;
 
 grant execute on insertEmployee to role_manager;
 grant execute on deleteEmployee to role_manager;

@@ -6,14 +6,14 @@ if(isset($_GET['action'])){
     if($_GET["action"] == "add"){
         $id = $_GET['product_id'];
         $qty = $_GET['qty'];
-        $sql = "SELECT * FROM ProductTransaction WHERE Employee_id = :emploid AND Product_id = :prodid";
+        $sql = "SELECT * FROM system.ProductTransaction WHERE Employee_id = :emploid AND Product_id = :prodid";
         $stmt = oci_parse($conn, $sql);
         oci_bind_by_name($stmt, ":emploid", $employee_id);
         oci_bind_by_name($stmt, ":prodid", $id);
         oci_execute($stmt);
         $datae = oci_fetch_assoc($stmt);
         if($datae == null){
-            $sql = "INSERT INTO ProductTransaction VALUES(:prodid,:qty,:emploid)";
+            $sql = "INSERT INTO system.ProductTransaction VALUES(:prodid,:qty,:emploid)";
             $stmt = oci_parse($conn, $sql);
             oci_bind_by_name($stmt, ":prodid", $id);
             oci_bind_by_name($stmt, ":qty", $qty);
@@ -21,7 +21,7 @@ if(isset($_GET['action'])){
             oci_execute($stmt);
         }else{
             $qtybaru = $qty+$datae["QUANTITY"];
-            $sql = "UPDATE ProductTransaction SET QUANTITY = :qty WHERE Employee_id = :emploid AND Product_id = :prodid";
+            $sql = "UPDATE system.ProductTransaction SET QUANTITY = :qty WHERE Employee_id = :emploid AND Product_id = :prodid";
             $stmt = oci_parse($conn, $sql);
             oci_bind_by_name($stmt, ":prodid", $id);
             oci_bind_by_name($stmt, ":qty", $qtybaru);
@@ -31,14 +31,14 @@ if(isset($_GET['action'])){
         echo "sukses";
     }else if($_GET["action"] == "remove"){
         $id = $_GET['product_id'];
-        $sql = "DELETE FROM ProductTransaction WHERE Product_id = :prodid AND Employee_id = :emploid ";
+        $sql = "DELETE FROM system.ProductTransaction WHERE Product_id = :prodid AND Employee_id = :emploid ";
         $stmt = oci_parse($conn, $sql);
         oci_bind_by_name($stmt, ":prodid", $id);
         oci_bind_by_name($stmt, ":emploid", $employee_id);
         oci_execute($stmt);
         echo "sukses";
     }else{
-        $sql = "SELECT * FROM ProductTransaction pt, product p WHERE p.PRODUCT_ID = pt.PRODUCT_ID AND Employee_id = :emploid ";
+        $sql = "SELECT * FROM system.ProductTransaction pt, system.product p WHERE p.PRODUCT_ID = pt.PRODUCT_ID AND Employee_id = :emploid ";
         $stmt = oci_parse($conn, $sql);
         oci_bind_by_name($stmt, ":emploid", $employee_id);
         oci_execute($stmt);

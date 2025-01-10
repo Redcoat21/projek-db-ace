@@ -1,7 +1,7 @@
 <?php
 include("../config/conn.php");
 include("pengecekan.php");
-$sql = "SELECT * FROM employee";
+$sql = "SELECT * FROM system.employee";
 $stmt = oci_parse($conn, $sql);
 oci_execute($stmt);
 if(isset($_POST["action"])){

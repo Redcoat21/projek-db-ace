@@ -1,7 +1,7 @@
 <?php
 include("../config/conn.php");
 include("pengecekan.php");
-$sql = 'SELECT ht.HTRANS_ID as hid, ht.TRANSACTION_DATE as datee, e."Name" as emplonama, c."Name" as custnama, ht.TOTAL as totale FROM HTRANS ht, employee e, customer c where ht.employee_id = e.employee_id and c.customer_id = c.customer_id';
+$sql = 'SELECT ht.HTRANS_ID as hid, ht.TRANSACTION_DATE as datee, e."Name" as emplonama, c."Name" as custnama, ht.TOTAL as totale FROM system.HTRANS ht, sytem.employee e, customer c where ht.employee_id = e.employee_id and c.customer_id = c.customer_id';
 $stmt = oci_parse($conn, $sql);
 oci_execute($stmt);
 
@@ -154,7 +154,7 @@ oci_execute($stmt);
 
                 while ($row = oci_fetch_assoc($stmt)) {
                     $lproduk = "";
-                    $sqle = 'SELECT * FROM DTRANS dt, product p where dt.product_id = p.product_id and dt.htrans_id = :htid';
+                    $sqle = 'SELECT * FROM system.DTRANS dt, system.product p where dt.product_id = p.product_id and dt.htrans_id = :htid';
                     $stmte = oci_parse($conn, $sqle);
                     oci_bind_by_name($stmte, ":htid", $row["HID"]);
                     oci_execute($stmte);

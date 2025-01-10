@@ -120,12 +120,12 @@ include("pengecekan.php");
       <?php
 
         // Fetch products
-        $sql = "SELECT * FROM PRODUCT";
+        $sql = "SELECT * FROM system.PRODUCT";
         $produk = oci_parse($conn, $sql);
         oci_execute($produk);
 
         // Fetch customers
-        $sql = "SELECT * FROM customer";
+        $sql = "SELECT * FROM system.customer";
         $customer = oci_parse($conn, $sql);
         oci_execute($customer);
 

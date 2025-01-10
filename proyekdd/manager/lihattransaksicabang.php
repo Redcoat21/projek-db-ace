@@ -1,7 +1,7 @@
 <?php
 include("../config/conn.php");
 include("pengecekan.php");
-$sql = "SELECT * FROM INTERBRANCHTRANSACTION it, product p where p.PRODUCT_ID = it.product_id";
+$sql = "SELECT * FROM system.INTERBRANCHTRANSACTION it, system.product p where p.PRODUCT_ID = it.product_id";
 $stmt = oci_parse($conn, $sql);
 oci_execute($stmt);
 

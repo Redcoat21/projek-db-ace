@@ -88,7 +88,7 @@
     <a href="jualbarang.php">Jual Barang</a>
     <a href="lihatcustomer.php">Lihat Customer</a>
     <a href="tambahcustomer.php">Tambah Customer</a>
-    <a href="login.html">Logout</a>
+    <a href="../logout.php">Logout</a>
   </div>
 </body>
 

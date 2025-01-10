@@ -1,7 +1,7 @@
 <?php
 include("../config/conn.php");
 include("pengecekan.php");
-$sql = "SELECT * FROM CUSTOMER";
+$sql = "SELECT * FROM system.CUSTOMER";
 $stmt = oci_parse($conn, $sql);
 oci_execute($stmt);
 

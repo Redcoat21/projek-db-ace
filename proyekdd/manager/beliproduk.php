@@ -1,6 +1,6 @@
 <?php
 include("../config/conn.php");
-// include("pengecekan.php");
+include("pengecekan.php");
 if(isset($_POST["cabangnya"])){
     $datacabang = explode("#",$_POST["cabangnya"]);
     $dblink = strtolower($datacabang[1]);
@@ -15,7 +15,7 @@ if(isset($_POST["cabangnya"])){
     oci_bind_by_name($stmt, ":subtotal", $subtotal);
     oci_execute($stmt);
 }
-$sql = "SELECT * FROM branch";
+$sql = "SELECT * FROM system.branch";
 $branch2 = oci_parse($conn, $sql);
 oci_execute($branch2);
 $branche22 = oci_fetch_assoc($branch2);

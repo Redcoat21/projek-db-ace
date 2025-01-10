@@ -42,7 +42,7 @@ create table product(
 );
 
 create table productDummy(
-    Product_id varchar2 (255 byte) primary key,
+    Product_id varchar2 (255 byte),
     "Name" varchar2 (50 byte) not null,
     "Type" varchar2 (50 byte) not null,
     Price number (15) not null,
@@ -457,6 +457,82 @@ grant execute on refreshmv to role_manager;
 GRANT CREATE USER TO role_manager;
 insert into variable values('syncStatus','active');
 insert into variable values ('branch_name','system');
+BEGIN
+    DBMS_SCHEDULER.CREATE_JOB(
+        job_name        => 'sync_job',
+        program_name    => 'program_sync_program',
+        schedule_name   => 'sync_schedule',
+        enabled         => FALSE,
+        auto_drop       => FALSE,
+        comments        => 'Job to synchronize product data across branches'
+    );
+END;
+/
+show err;
+
+-- the schedule
+BEGIN
+    DBMS_SCHEDULER.CREATE_SCHEDULE(
+        schedule_name => 'sync_schedule',
+        start_date    => SYSTIMESTAMP,
+        repeat_interval => 'FREQ=SECONDLY; INTERVAL=20',
+        end_date      => NULL,
+        comments      => 'Runs every 20 seconds'
+    );
+END;
+/
+show err;
+
+-- the program
+BEGIN
+    DBMS_SCHEDULER.CREATE_PROGRAM(
+        program_name   => 'program_sync_program',
+        program_type   => 'PLSQL_BLOCK',
+        program_action => 'BEGIN sync_program(); END;',
+        enabled        => TRUE
+    );
+END;
+/
+show err;
+
+BEGIN
+    DBMS_SCHEDULER.ENABLE('sync_job');
+END;
+/
+show err;
+
+BEGIN
+    DBMS_SCHEDULER.DISABLE('sync_job');
+END;
+/
+show err;
+
+
+-- the program's procedure
+create or replace procedure sync_program as
+dblinkName varchar2(255):='';
+begin
+    DECLARE CURSOR X IS select * FROM productDummy;
+      BEGIN
+          FOR Y IN X LOOP
+              begin
+                  dblinkName := REGEXP_SUBSTR(y.dblink, '@.*$', 1, 1);
+                  dblinkName := SUBSTR(dblinkName, 2);
+                  EXECUTE IMMEDIATE 'INSERT INTO ' ||y.Branch_Owner||'.product@'||y.dblink ||' VALUES (:1,:2,:3,:4,:5,:6,:7)' using
+                  Y.product_id,Y."Name",Y."Type",Y.Price,0,Y.branch_owner,Y.dblink;
+                  delete from productDummy where product_id=Y.product_id and dblink=Y.dblink;
+              exception
+                  when others then
+                      DBMS_OUTPUT.PUT_LINE('Dblink ' || dblinkName || ' is not active.');
+              end;
+          END LOOP;
+        --   commit;
+      END;
+    --   delete from productDummy;
+      commit;
+end sync_program;
+/
+show err;
 4. JALANKAN
 - ROBAH
 insert into variable values ('dblink','TO_ROBAH');

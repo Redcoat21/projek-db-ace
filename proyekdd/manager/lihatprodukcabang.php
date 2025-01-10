@@ -1,7 +1,7 @@
 <?php
 include("../config/conn.php");
 include("pengecekan.php");
-$sql = "SELECT * FROM productfromallbranch";
+$sql = "SELECT * FROM system.productfromallbranch";
 $stmt = oci_parse($conn, $sql);
 oci_execute($stmt);
 

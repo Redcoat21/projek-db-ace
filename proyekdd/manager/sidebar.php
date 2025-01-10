@@ -52,7 +52,7 @@
     <a href="lihattransaksicabang.php">Lihat Transaksi Cabang</a>
     <a href="listemployee.php">List Employee</a>
     <a href="tambahemployee.php">Tambah Employee</a>
-    <a href="logout.php">Logout</a>
+    <a href="../logout.php">Logout</a>
   </div>
 </body>
 

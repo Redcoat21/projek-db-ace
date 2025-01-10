@@ -1,6 +1,11 @@
 <?php
 include("../config/conn.php");
 include("pengecekan.php");
+if(isset($_POST["refresh"])){
+  $sql = "BEGIN system.REFRESHMV();  END;";
+  $stmt = oci_parse($conn, $sql);
+  oci_execute($stmt);
+}
 $sql = "SELECT * FROM system.productfromallbranch";
 $stmt = oci_parse($conn, $sql);
 oci_execute($stmt);
@@ -133,9 +138,12 @@ oci_execute($stmt);
 </head>
 
 <body>
-<?php include('sidebar.php'); ?>
-
+<?php include('sidebar.php'); 
+?>
     <div class="content">
+        <form method="POST">
+          <input type="submit" value="Refresh" name="refresh">
+        </form>
         <div class="table-container">
         <h1>Lihat Produk Cabang</h1>
         <table>

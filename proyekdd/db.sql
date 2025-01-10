@@ -504,12 +504,6 @@ END;
 /
 show err;
 
-BEGIN
-    DBMS_SCHEDULER.DISABLE('sync_job');
-END;
-/
-show err;
-
 
 -- the program's procedure
 create or replace procedure sync_program as
@@ -524,12 +518,13 @@ begin
                   EXECUTE IMMEDIATE 'INSERT INTO ' ||y.Branch_Owner||'.product@'||y.dblink ||' VALUES (:1,:2,:3,:4,:5,:6,:7)' using
                   Y.product_id,Y."Name",Y."Type",Y.Price,0,Y.branch_owner,Y.dblink;
                   delete from productDummy where product_id=Y.product_id and dblink=Y.dblink;
+                  commit;
               exception
                   when others then
                       DBMS_OUTPUT.PUT_LINE('Dblink ' || dblinkName || ' is not active.');
               end;
           END LOOP;
-        --   commit;
+          -- commit;
       END;
     --   delete from productDummy;
       commit;

@@ -440,13 +440,16 @@ grant select, insert, update on productFromAllBranch to role_staff;
 grant execute on CHECKANDINSERTCUSTOMER to role_staff;
 grant execute on createTransaction to role_staff;
 grant execute on refreshmv to role_staff;
+
 grant connect to role_manager;
 grant select, insert, update on employee to role_manager;
 grant select, insert, update on product to role_manager;
-grant select, insert, update on htrans to role_manager;
-grant select, insert, update on dtrans to role_manager;
+grant select, insert, update on HTRANS to role_manager;
+grant select, insert, update on DTRANS to role_manager;
 grant select, insert, update on productFromAllBranch to role_manager;
 grant select, insert, update on branch to role_manager;
+grant select, insert, update on customer to role_manager;
+grant select, insert, update on INTERBRANCHTRANSACTION to role_manager;
 
 grant execute on insertEmployee to role_manager;
 grant execute on deleteEmployee to role_manager;

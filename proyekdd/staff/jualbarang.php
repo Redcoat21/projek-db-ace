@@ -1,3 +1,7 @@
+<?php
+include("../config/conn.php");
+include("pengecekan.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -114,7 +118,6 @@
     <div class="card">
       <h1>Jual Barang</h1>
       <?php
-        include("../config/conn.php");
 
         // Fetch products
         $sql = "SELECT * FROM PRODUCT";

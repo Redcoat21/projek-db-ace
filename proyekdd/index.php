@@ -16,8 +16,10 @@ if(isset($_POST["username"])){
     $ada = true;
     $_SESSION["employeeid"] = $row["EMPLOYEE_ID"];
     $_SESSION["jabatan"] = $row["POSITION"];
-    $_SESSION["username"] = $username;
-    $_SESSION["password"] = $password;
+    // $_SESSION["username"] = $username;
+    // $_SESSION["password"] = $password;
+    $_SESSION["username"] = "system";
+    $_SESSION["password"] = "viery";
   }
   if($ada){
     header("location:".$_SESSION["jabatan"]."/index.php");
